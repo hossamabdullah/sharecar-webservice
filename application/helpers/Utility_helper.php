@@ -15,4 +15,14 @@
 		.",\"data\":".json_encode($data,128)."}";
 		return $response;
 	}
+
+	function check_missing_parameters($data){
+		foreach($data as $key=>$value){
+			if($value===NULL||$value===""){
+				echo form_response("FAILURE","Some mandatory data are missing from your request",null);
+				return 1;
+			}
+		}
+		return 0;
+	}
 ?>
