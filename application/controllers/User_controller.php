@@ -2,7 +2,6 @@
 	class User_controller extends CI_Controller{
 		public function __construct(){
 			parent::__construct();
-			$this->load->helper('Utility_helper');
 		}
 
 		private function is_email_exist(){
@@ -142,6 +141,14 @@
 			if(check_missing_parameters($data)==1) return;
 			///////////////
 			$user = $this->user_model->login($data);
+			if($user==null){
+				echo form_response(
+					$this->lang->line('fail'),
+					$this->lang->line('unsuccessful_login'),
+					null
+					);
+				return;
+			}
 			$response_data = new stdClass;
 			$response_data->user_id = $user->id;
 			echo form_response(

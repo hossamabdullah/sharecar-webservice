@@ -19,7 +19,7 @@
 	function check_missing_parameters($data){
 		foreach($data as $key=>$value){
 			if($value===NULL||$value===""){
-				echo form_response("FAILURE","Some mandatory data are missing from your request",null);
+				echo form_response("FAILURE","Some mandatory data are missing from your request (".$key.")",null);
 				return 1;
 			}
 		}

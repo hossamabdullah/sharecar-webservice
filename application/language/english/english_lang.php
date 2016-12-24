@@ -17,9 +17,13 @@
 	
 	$lang['successful_registration']="You have been registered successfully";
 	$lang['successful_login']="You have been successfully logged in";
+	$lang['unsuccessful_login']="Wrong user name or password";
 
 	$lang['car_exists']="Car exists for this user";
 	$lang['car_not_exists']="No car exists for this user";
 	$lang['car_added_successfully']="Car has been added successfully";
+
+	$lang['successful_trip_registration']="Trip has been registered successfully";
+	$lang['invalid_start_time']="Invalid start time of the trip(Overlapping with another one)";
 
 ?>
