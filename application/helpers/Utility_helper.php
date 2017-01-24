@@ -10,9 +10,18 @@
 
 
 	function form_response($status, $message, $data){
-		$response = "{\"status\":\"".$status."\""
-		.",\"message\":\"".$message."\""
-		.",\"data\":".json_encode($data,128)."}";
+		$modifiedData = array();
+		if(is_array($data))
+			$modifiedData = $data;
+		else
+			$modifiedData[] = $data;
+
+		$response = "{\"code\":". (int)$message
+		.",\"data\":".json_encode($modifiedData,128)."}";
+
+		// $response = "{\"status\":\"".$status."\""
+		// .",\"message\":\"".$message."\""
+		// .",\"data\":".json_encode($data,128)."}";
 		return $response;
 	}
 
